@@ -2,12 +2,10 @@ package org.ersinyildiz.dao;
 
 import org.ersinyildiz.model.Person;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository
 public class PersonDaoImpl implements PersonDao{
 
     private SessionFactory sessionFactory;

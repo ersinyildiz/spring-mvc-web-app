@@ -2,12 +2,9 @@ package org.ersinyildiz.service;
 
 import org.ersinyildiz.dao.PersonDao;
 import org.ersinyildiz.model.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public class PersonServiceImpl implements PersonService{
 
     private PersonDao personDao;

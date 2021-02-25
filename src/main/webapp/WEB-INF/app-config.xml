@@ -10,8 +10,9 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
     <mvc:annotation-driven/>
-    <context:annotation-config />
+
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -20,16 +21,19 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/springtestdb?useUnicode=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Turkey" />
-        <property name="username" value="root" />
-        <property name="password" value="root" />
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.h2.Driver" />
+        <property name="url" value="jdbc:h2:mem:testdb" />
+        <property name="username" value="sa" />
+        <property name="password" value="" />
     </bean>
 
+    <jdbc:embedded-database id="testdb" type="H2">
+        <jdbc:script location="classpath:schema.sql" />
+    </jdbc:embedded-database>
+
     <!-- Hibernate SessionFactory -->
-    <bean id="localSessionFactoryBean"
-          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id="localSessionFactoryBean" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
@@ -38,25 +42,32 @@
         </property>
         <property name="hibernateProperties">
             <value>
-                hibernate.hbm2ddl.auto=update
-                hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+                hibernate.hbm2ddl.auto=create-drop
+                hibernate.dialect=org.hibernate.dialect.H2Dialect
+                hibernate.connection.characterEncoding=UTF-8
+                hibernate.connection.charSet=UTF-8
             </value>
         </property>
     </bean>
-    
+
+    <bean id="personController" class="org.ersinyildiz.controller.PersonController">
+        <property name="personService" ref="personService"/>
+    </bean>
+
     <bean id="personDao" class="org.ersinyildiz.dao.PersonDaoImpl">
-        <property name="sessionFactory" ref="localSessionFactoryBean"></property>
+        <property name="sessionFactory" ref="localSessionFactoryBean"/>
     </bean>
     
     <bean name="personService" class="org.ersinyildiz.service.PersonServiceImpl">
-        <property name="personDao" ref="personDao"></property>
+        <property name="personDao" ref="personDao"/>
     </bean>
 
     <context:component-scan base-package="org.ersinyildiz" />
+
     <!-- Transaction Management -->
     <tx:annotation-driven transaction-manager="txManager" />
-    <bean id="txManager"
-          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="localSessionFactoryBean" />
     </bean>
 

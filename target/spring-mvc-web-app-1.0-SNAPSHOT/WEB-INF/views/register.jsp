@@ -1,11 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE>
 <html lang="tr">
 <head>
     <title>Kayıt</title>
-    <meta charset="utf-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <!-- JavaScript Bundle with Popper -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -31,8 +31,8 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">İsim Soyisim</span>
                 </div>
-                <form:input path="firstName" type="text" class="form-control"></form:input>
-                <form:input path="lastName" type="text" class="form-control"></form:input>
+                <form:input path="firstName" type="text" class="form-control" />
+                <form:input path="lastName" type="text" class="form-control" />
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -53,13 +53,13 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Cep No:</span>
                 </div>
-                <form:input path="phoneNumber" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"></form:input>
+                <form:input path="phoneNumber" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" />
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Adres</span>
                 </div>
-                <form:textarea path="address" class="form-control" aria-label="With textarea"></form:textarea>
+                <form:textarea path="address" class="form-control" aria-label="With textarea" />
             </div>
             <button type="submit" class="btn btn-success btn-lg">Kaydet</button>
         </form:form>
