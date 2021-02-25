@@ -1,0 +1,7 @@
+org\ersinyildiz\controller\PersonController.class
+org\ersinyildiz\dao\PersonDaoImpl.class
+org\ersinyildiz\dao\PersonDao.class
+org\ersinyildiz\model\Person.class
+org\ersinyildiz\service\PersonServiceImpl.class
+org\ersinyildiz\service\PersonService.class
+org\ersinyildiz\SpringMVCWebApp.class
