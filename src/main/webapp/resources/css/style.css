@@ -97,11 +97,6 @@ body {
     font-weight: 700;
 }
 
-.table-scroll{
-    overflow-y: scroll;
-    height: 60% !important;
-}
-
 /*
  * Footer
  */

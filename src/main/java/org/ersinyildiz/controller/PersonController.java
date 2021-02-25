@@ -2,12 +2,11 @@ package org.ersinyildiz.controller;
 
 import org.ersinyildiz.model.Person;
 import org.ersinyildiz.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PersonController {
@@ -35,10 +34,9 @@ public class PersonController {
         model.addAttribute("personList",personService.getPersonList());
         return "list";
     }
-    @RequestMapping(method = RequestMethod.POST,value = "/add")
+    @PostMapping(value = "/add")
     public String addPerson(@ModelAttribute("person") Person person){
         personService.savePerson(person);
         return "index";
     }
-
 }

@@ -6,8 +6,8 @@
     <title>Anasayfa</title>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <!-- JavaScript Bundle with Popper -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap_4.4.1_css_bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/font-awesome_4.7.0_css_font-awesome.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
 </head>
 <body class="text-center">
